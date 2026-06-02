@@ -3,222 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khảo Sát Đáng Yêu</title>
+<title>Chúc Mừng Quốc Tế Thiếu Nhi 1/6</title>
 
 <style>
 body {
     margin: 0;
-    background: linear-gradient(135deg, #ffd6e7, #dff7ff);
-    overflow: hidden;
+    /* Nền màu xanh đen chủ đạo */
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
     text-align: center;
+    color: #f1f5f9;
 }
 
 .container {
-    margin-top: 60px;
+    margin-top: 50px;
     padding: 20px;
-    position: relative;
-    z-index: 10;
 }
 
 h1 {
-    color: #ff4f8b;
-    font-size: 32px;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    color: #f472b6; 
+    font-size: 35px;
+    text-shadow: 0 0 15px rgba(244, 114, 182, 0.6);
 }
 
-/* Khung câu hỏi */
-.quiz-box {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    max-width: 450px;
-    margin: auto;
-}
-
-.question {
-    font-size: 22px;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 25px;
-    line-height: 1.4;
-}
-
-/* Nút đáp án */
-.btn-option {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    margin: 12px 0;
+p {
     font-size: 18px;
-    color: #fff;
-    background-color: #4fc3f7;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.btn-option:hover {
-    background-color: #03a9f4;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.1);
-}
-
-.btn-option:active {
-    transform: translateY(0);
-}
-
-/* Kết quả cuối cùng */
-#result-box {
-    display: none;
-}
-
-.secret-msg {
-    font-size: 22px;
-    color: #333;
-    font-weight: bold;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: auto;
     line-height: 1.6;
 }
 
-/* Hiệu ứng tim bay */
-.heart {
+/* Khung nhập câu trả lời */
+.reply-form {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 30px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.reply-form h3 {
+    margin-top: 0;
+    color: #38bdf8;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #f472b6;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+    font-size: 16px;
+}
+
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #f472b6;
+}
+
+button {
+    background: linear-gradient(90deg, #f472b6, #38bdf8);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(244, 114, 182, 0.4);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px #38bdf8;
+}
+
+/* Hiệu ứng sao lấp lánh bay lên */
+.star {
     position: absolute;
-    color: #ff4f8b;
     animation: float 8s linear infinite;
-    z-index: 1;
-    user-select: none;
+    pointer-events: none;
 }
 
 @keyframes float {
-    from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-    to { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-}
-
-/* Iframe ẩn để chặn chuyển trang khi gửi Form */
-#hidden_iframe {
-    display: none;
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 </style>
 </head>
+
 <body>
 
-<!-- Iframe ngầm xử lý dữ liệu -->
-<iframe name="hidden_iframe" id="hidden_iframe" onload="if(submitted) {showResult();}"></iframe>
-
 <div class="container">
-    <h1>✨ Góc Khảo Sát Nhỏ ✨</h1>
+    <h1>🎈 Chúc Mừng Quốc Tế Thiếu Nhi 1/6 🎈</h1>
 
-    <!-- Khung hiển thị câu hỏi trắc nghiệm -->
-    <div class="quiz-box" id="quiz-box">
-        <div class="question" id="question-text">Đang tải câu hỏi...</div>
-        <div id="options-container"></div>
+    <p>
+        Chúc cậu luôn vui vẻ, mạnh khỏe, có thật nhiều tiếng cười và những kỷ niệm đẹp. 
+        Mong mọi điều may mắn sẽ đến với cậu hôm nay và mỗi ngày sau đó. ✨
+    </p>
+
+    <br>
+
+    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800"
+         width="260"
+         style="border-radius:20px; box-shadow: 0 0 25px rgba(244, 114, 182, 0.3);">
+
+    <!-- FORM ĐÃ ĐƯỢC TÍCH HỢP ĐƯỜNG LINK FORMSPREE CỦA CẬU -->
+    <div class="reply-form">
+        <h3>Gửi lời nhắn cho tớ nhé 💬</h3>
+        <form action="https://formspree.io/f/mlgvqlwy" method="POST">
+            <textarea name="message" placeholder="Nhập câu trả lời hoặc lời chúc của cậu vào đây..." required></textarea>
+            <button type="submit">Gửi đi liền ✨</button>
+        </form>
     </div>
 
-    <!-- Khung hiện lời chúc khi hoàn thành -->
-    <div class="quiz-box" id="result-box">
-        <h2 style="color: #ff4f8b;">🎉 Doneeee! 🎉</h2>
-        <p class="secret-msg">
-            uầy, lm ht lun à, khét lẹt đấy 🙃🙃
-        </p>
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800" width="230" style="border-radius:20px; margin-top:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    </div>
-
-    <!-- Form ngầm tự động điền dữ liệu gửi về Google Form của cậu -->
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSd17yeER6gecH5U9-BKLOrGLyALaIMoUwRCYoQuEuRE6LR6qA/formResponse" method="POST" target="hidden_iframe" id="google-form">
-        <input type="hidden" name="entry.1691969248" id="ans-1">
-        <input type="hidden" name="entry.1011311029" id="ans-2">
-        <input type="hidden" name="entry.45472851" id="ans-3">
-    </form>
-
-    <br><br>
-    <!-- Nhạc nền dễ thương -->
-    <audio controls autoplay loop style="border-radius: 20px; opacity: 0.8;">
+    <audio controls autoplay loop style="margin-top: 10px;">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
     </audio>
 </div>
 
 <script>
-// Bộ câu hỏi và đáp án đúng như cậu yêu cầu
-const quizData = [
-    {
-        question: "hù! giật mk chứ🥴?",
-        options: ["Ừ", "ko"]
-    },
-    {
-        question: "tui là j của bn?",
-        options: ["Bn bè", "Ny", "bn thân khác giới", "kẻ thù"]
-    },
-    {
-        question: "bn thik tui ở điểm nào?",
-        options: ["Tính cách", "khả lăng chs game", "vó mồm", "dếch thik"]
-    }
-];
-
-let currentQuestionIndex = 0;
-let userAnswers = [];
-let submitted = false;
-
-const questionText = document.getElementById("question-text");
-const optionsContainer = document.getElementById("options-container");
-const quizBox = document.getElementById("quiz-box");
-const resultBox = document.getElementById("result-box");
-
-function loadQuestion() {
-    optionsContainer.innerHTML = "";
-    let currentQuiz = quizData[currentQuestionIndex];
-    questionText.innerText = `Câu ${currentQuestionIndex + 1}: ${currentQuiz.question}`;
-    
-    currentQuiz.options.forEach(option => {
-        const button = document.createElement("button");
-        button.innerText = option;
-        button.className = "btn-option";
-        button.onclick = () => handleAnswer(option);
-        optionsContainer.appendChild(button);
-    });
-}
-
-function handleAnswer(selectedOption) {
-    // Lưu câu trả lời của người dùng lại
-    userAnswers.push(selectedOption);
-    
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
-        loadQuestion();
-    } else {
-        // Điền dữ liệu vào form ngầm và tự động submit lên Google Form
-        document.getElementById("ans-1").value = userAnswers[0];
-        document.getElementById("ans-2").value = userAnswers[1];
-        document.getElementById("ans-3").value = userAnswers[2];
-        
-        submitted = true;
-        document.getElementById("google-form").submit();
-    }
-}
-
-function showResult() {
-    // Ẩn khung câu hỏi, hiện khung lời chúc thành công
-    quizBox.style.display = "none";
-    resultBox.style.display = "block";
-}
-
-// Chạy câu hỏi đầu tiên
-loadQuestion();
-
-// Tạo hiệu ứng tim bay nền lãng mạn
-for(let i=0; i<25; i++){
-    let heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.className = "heart";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (16 + Math.random()*20) + "px";
-    heart.style.animationDuration = (5 + Math.random()*5) + "s";
-    heart.style.bottom = "-50px";
-    document.body.appendChild(heart);
+// Tạo hiệu ứng ngôi sao lấp lánh bay lên nền đêm xanh đen
+const colors = ["✨", "⭐", "💖", "💙"];
+for(let i=0; i<40; i++){
+    let star = document.createElement("div");
+    star.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.fontSize = (15 + Math.random() * 20) + "px";
+    star.style.animationDuration = (6 + Math.random() * 6) + "s";
+    star.style.animationDelay = (Math.random() * 5) + "s";
+    document.body.appendChild(star);
 }
 </script>
 
